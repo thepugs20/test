@@ -9,7 +9,7 @@
  *
  * Thanks to vor, eskimoblood, spiffistan, FabrizioC
  */
-"use strict";
+
 (function(e) {
     if (typeof exports === "object") {
         module.exports = e(require("jquery"))
@@ -164,8 +164,8 @@
         };
         this._carve = function() {
             if (this.relative) {
-                var e = this.relativeWidth ? this.$div.parent().width() * parseInt(this.o.width,10) / 100 : this.$div.parent().width(),
-                    t = this.relativeHeight ? this.$div.parent().height() * parseInt(this.o.height,10) / 100 : this.$div.parent().height();
+                var e = this.relativeWidth ? this.$div.parent().width() * parseInt(this.o.width) / 100 : this.$div.parent().width(),
+                    t = this.relativeHeight ? this.$div.parent().height() * parseInt(this.o.height) / 100 : this.$div.parent().height();
                 this.w = this.h = Math.min(e, t)
             } else {
                 this.w = this.o.width;
@@ -377,13 +377,12 @@
                     39: t.o.step,
                     40: -t.o.step
                 };
-                alert(String.fromCharCode(s))
             this.$.bind("keydown", function(i) {
                 var s = i.keyCode;
                 if (s >= 96 && s <= 105) {
                     s = i.keyCode = s - 48
                 }
-                alert(u)
+                u = parseInt(String.fromCharCode(s));
                 if (isNaN(u)) {
                     s !== 13 && s !== 8 && s !== 9 && s !== 189 && (s !== 190 || t.$.val().match(/\./)) && i.preventDefault();
                     if (e.inArray(s, [37, 38, 39, 40]) > -1) {
